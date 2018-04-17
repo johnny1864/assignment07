@@ -83,10 +83,10 @@ for (var keys in animal) {
 
 //STEP 7
 
-animal.speak();
+//animal.speak();
 
 //STEP 8
-
+/*
 var Animal = function (talk, type, breed, color, height, length) {
     'use strict';
 
@@ -101,10 +101,10 @@ var Animal = function (talk, type, breed, color, height, length) {
     };
 
     this.speak = function () {
-        
+        return checkType();
     };
-    
-    var checkType = function(){
+
+    var checkType = function () {
         if (this.type === 'dog') {
             return 'dog';
         } else if (this.type === 'cat') {
@@ -115,8 +115,27 @@ var Animal = function (talk, type, breed, color, height, length) {
     };
 };
 
+var animal = new Animal('hello', 'cat', 'tiger', 'brown', '12in', '32in');
 
+animal.speak();
+*/
 
 //STEP 9
 
-//STEP 10
+String.prototype.findWords = function (str) {
+    var count = 0;
+    str = str.split(' ');
+    str.forEach(function(word, i){
+        if(word === str[i]){
+            count++;
+        }
+        return count;
+    });
+}
+
+var text = 'The thing that was over there';
+
+window.console.log(text.findWords('was'));
+
+
+
