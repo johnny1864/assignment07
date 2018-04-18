@@ -125,17 +125,15 @@ animal.speak();
 String.prototype.findWords = function (str) {
     var count = 0;
     str = str.split(' ');
-    str.forEach(function(word, i){
-        if(word === str[i]){
+    str.forEach(function (word, i) {
+        if (word === str[i]) {
             count++;
         }
-        return count;
     });
+    window.console.log(count);
+    return count;
 }
 
-var text = 'The thing that was over there';
+var text = 'Do that that was done';
 
-window.console.log(text.findWords('was'));
-
-
-
+window.console.log(text.findWords('that'));
