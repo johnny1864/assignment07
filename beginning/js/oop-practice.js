@@ -90,24 +90,18 @@ for (var keys in animal) {
 var Animal = function (talk, type, breed, color, height, length) {
     'use strict';
 
-    var type = type;
-    var breed = breed;
-    var color = color;
-    var height = height;
-    var length = length;
-
-    this.init = function () {
+    var init = function () {
         window.console.log('The animal has been created and says ' + talk);
     };
 
     this.speak = function () {
-        return checkType();
+        return 'The ' + checkType() + ' has made a noise!';
     };
 
     var checkType = function () {
-        if (this.type === 'dog') {
+        if (type === 'dog') {
             return 'dog';
-        } else if (this.type === 'cat') {
+        } else if (type === 'cat') {
             return 'cat'
         } else {
             return type;
@@ -117,23 +111,24 @@ var Animal = function (talk, type, breed, color, height, length) {
 
 var animal = new Animal('hello', 'cat', 'tiger', 'brown', '12in', '32in');
 
-animal.speak();
+window.console.log(animal.speak());
 */
 
 //STEP 9
-
+/*
 String.prototype.findWords = function (str) {
     var count = 0;
-    str = str.split(' ');
-    str.forEach(function (word, i) {
-        if (word === str[i]) {
+    var text = this;
+    text = text.split(' ');
+    text.forEach(function(word){
+        if(str === word){
             count++;
         }
     });
-    window.console.log(count);
     return count;
 }
 
 var text = 'Do that that was done';
 
 window.console.log(text.findWords('that'));
+*/
