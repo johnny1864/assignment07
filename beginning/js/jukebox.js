@@ -65,35 +65,19 @@ window.addEventListener('load', function () {
         albums[i] = new Album(music[i][0], music[i][1]);
         jbox.addAlbum(albums[i]);
     }
-
-    /*
-    var album1 = new Album();
-    var album2 = new Album(music[1][0], music[1][1]);
-    var album3 = new Album();
     
-    
-    jbox.addAlbum(album2);
-    jbox.addAlbum(album3);
-    */
-
     var menu = $('menu');
 
     $('play').addEventListener('click', function (e) {
-        window.console.log(e.target);
+        
+        //ITERATES THROUGH MUSIC ARRAY AND MATCHES IT TO VALUE 
+        //OF SELECTED ITEM AND PLAYS ALBUM AT THAT INDEX
         for(var i = 0; i<albums.length; i++){
             if(music[i][1] === menu.value){
                 albums[i].play();
             }
         }
     });
-
-    /*
-    album1.play();
-    album1.play();
-    album1.play();
-    album2.play();
-    album3.play();
-    */
     
     $('show-favs').addEventListener('click', function(){
         $('favoriteAlbum').innerHTML = "You favorite album is " + jbox.favoriteAlbum()
