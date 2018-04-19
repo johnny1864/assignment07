@@ -36,8 +36,7 @@ var Album = function (artist, title) {
     "use strict";
 
     var displayAlbum = function () {
-        window.console.log(title);
-        $('albums').innerHTML += `<option value='${title}'>${title}</option>`;
+        $('menu').innerHTML += `<option value='${title}'>${title} by ${artist}</option>`;
     }
     displayAlbum();
     var self = {
@@ -56,20 +55,38 @@ var Album = function (artist, title) {
 window.addEventListener('load', function () {
 
     var jbox = new Jukebox();
-    var album1 = new Album("Operation Ivy", "Energy");
-    var album2 = new Album("Blink 182", "Dude Ranch");
-    var album3 = new Album("New Found Glory", "Sticks and Stones");
 
-    jbox.addAlbum(album1);
+    var music = [["Operation Ivy", "Energy"], ["Blink 182", "Dude Ranch"], ["New Found Glory", "Sticks and Stones"]];
+
+    var albums = [];
+
+    //CREATES ALBUMS FOR MUSIC ARRAY
+    for (var i = 0; i < music.length; i++) {
+        albums[i] = new Album(music[i][0], music[i][1]);
+        jbox.addAlbum(albums[i]);
+    }
+
+    /*
+    var album1 = new Album();
+    var album2 = new Album(music[1][0], music[1][1]);
+    var album3 = new Album();
+    
+    
     jbox.addAlbum(album2);
     jbox.addAlbum(album3);
-    
-    var albums = $('albums');
-    
-    $('play').addEventListener('click', function(e){
-       window.console.log(albums.value); 
+    */
+
+    var menu = $('menu');
+
+    $('play').addEventListener('click', function (e) {
+        window.console.log(e.target);
+        for(var i = 0; i<albums.length; i++){
+            if(music[i][1] === menu.value){
+                albums[i].play();
+            }
+        }
     });
-    
+
     /*
     album1.play();
     album1.play();
@@ -78,5 +95,17 @@ window.addEventListener('load', function () {
     album3.play();
     */
     
-    window.console.log("You favorite album is: " + jbox.favoriteAlbum());
+    $('show-favs').addEventListener('click', function(){
+        $('favoriteAlbum').innerHTML = "You favorite album is " + jbox.favoriteAlbum()
+    });
 });
+
+
+
+
+
+
+
+
+
+
